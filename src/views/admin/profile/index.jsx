@@ -1,118 +1,91 @@
-/*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || | 
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
-                                                                                                                                                                                                                                                                                                                                       
-=========================================================
-* Horizon UI - v1.1.0
-=========================================================
-
-* Product Page: https://www.horizon-ui.com/
-* Copyright 2022 Horizon UI (https://www.horizon-ui.com/)
-
-* Designed and Coded by Simmmple
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-
-// Chakra imports
-import { Box, Grid } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
 // Custom components
 import Banner from "views/admin/profile/components/Banner";
 import General from "views/admin/profile/components/General";
-import Notifications from "views/admin/profile/components/Notifications";
 import Projects from "views/admin/profile/components/Projects";
-import Storage from "views/admin/profile/components/Storage";
-import Upload from "views/admin/profile/components/Upload";
 
-// Assets
-import banner from "assets/img/auth/banner.png";
-import avatar from "assets/img/avatars/avatar4.png";
 import React from "react";
 
 export default function Overview() {
+  const company = {
+    display_name: "Blockchain Club SRM",
+    logo: "https://res.cloudinary.com/dnfy7apiy/image/upload/v1679714457/Polygon_cnolp8.png",
+    tasks_list: ["ObjectId"],
+    description:
+      "Layer 0 is a hackfest event organized by Blockchain Club SRM x GenY, aiming to connect keen enthusiasts and upcoming developers to leading industry professionals in the blockchain and web3 ecosystem. It is a 3 day event from April 17th to April 19th consisting of various technical events and fun activities including a Mystery Room, NFT Hunt and hackathon.",
+    enrolled_users: ["1", "2 ", "3"],
+    social_handles: [
+      {
+        name: "Twitter",
+        link: "https://twitter.com",
+      },
+      {
+        name: "Discord",
+        link: "https://discord.com",
+      },
+    ],
+    website: "https://www.blockchainsrm.org/",
+  };
+
+  const upcomingAirDrops = [
+    {
+      name: "CyberFi",
+      date: "April 17th, 2021",
+    },
+    {
+      name: "Gnosis",
+      date: "April 23th, 2021",
+    },
+    {
+      name: "CyberFi",
+      date: "April 17th, 2021",
+    },
+    {
+      name: "Gnosis",
+      date: "April 23th, 2021",
+    },
+    {
+      name: "CyberFi",
+      date: "April 17th, 2021",
+    },
+    {
+      name: "Gnosis",
+      date: "April 23th, 2021",
+    },
+    {
+      name: "CyberFi",
+      date: "April 17th, 2021",
+    },
+    {
+      name: "Gnosis",
+      date: "April 23th, 2021",
+    },
+  ];
+
+  const allAirdrops = [
+    {
+      name: "Crypto Airdrop",
+      date: "April 17th, 2021",
+    },
+  ];
+
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
       {/* Main Fields */}
-      <Grid
-        templateColumns={{
-          base: "1fr",
-          lg: "1.34fr 1fr 1.62fr",
-        }}
-        templateRows={{
-          base: "repeat(3, 1fr)",
-          lg: "1fr",
-        }}
-        gap={{ base: "20px", xl: "20px" }}>
-        <Banner
-          gridArea='1 / 1 / 2 / 2'
-          banner={banner}
-          avatar={avatar}
-          name='Adela Parkson'
-          job='Product Designer'
-          posts='17'
-          followers='9.7k'
-          following='274'
-        />
-        <Storage
-          gridArea={{ base: "2 / 1 / 3 / 2", lg: "1 / 2 / 2 / 3" }}
-          used={25.6}
-          total={50}
-        />
-        <Upload
+      <Flex>
+        <Banner gridArea="1 / 1 / 2 / 2" company={company} />
+
+        <General
+          data={upcomingAirDrops}
           gridArea={{
             base: "3 / 1 / 4 / 2",
             lg: "1 / 3 / 2 / 4",
           }}
-          minH={{ base: "auto", lg: "420px", "2xl": "365px" }}
-          pe='20px'
-          pb={{ base: "100px", lg: "20px" }}
         />
-      </Grid>
-      <Grid
-        mb='20px'
-        templateColumns={{
-          base: "1fr",
-          lg: "repeat(2, 1fr)",
-          "2xl": "1.34fr 1.62fr 1fr",
-        }}
-        templateRows={{
-          base: "1fr",
-          lg: "repeat(2, 1fr)",
-          "2xl": "1fr",
-        }}
-        gap={{ base: "20px", xl: "20px" }}>
-        <Projects
-          gridArea='1 / 2 / 2 / 2'
-          banner={banner}
-          avatar={avatar}
-          name='Adela Parkson'
-          job='Product Designer'
-          posts='17'
-          followers='9.7k'
-          following='274'
-        />
-        <General
-          gridArea={{ base: "2 / 1 / 3 / 2", lg: "1 / 2 / 2 / 3" }}
-          minH='365px'
-          pe='20px'
-        />
-        <Notifications
-          used={25.6}
-          total={50}
-          gridArea={{
-            base: "3 / 1 / 4 / 2",
-            lg: "2 / 1 / 3 / 3",
-            "2xl": "1 / 3 / 2 / 4",
-          }}
-        />
-      </Grid>
+      </Flex>
+
+      <Projects gridArea="1 / 2 / 2 / 2" data={allAirdrops} />
     </Box>
   );
 }
