@@ -10,6 +10,11 @@ import { switchStyles } from "./components/switch";
 import { linkStyles } from "./components/link";
 import { breakpoints } from "./foundations/breakpoints";
 import { globalStyles } from "./styles";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../tailwind.config";
+
+const tailwind = resolveConfig(tailwindConfig);
+
 export default extendTheme(
   { breakpoints }, // Breakpoints
   globalStyles,
