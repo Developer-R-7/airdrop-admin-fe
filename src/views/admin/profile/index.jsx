@@ -4,8 +4,8 @@ import { Box, Flex } from "@chakra-ui/react";
 import Banner from "views/admin/profile/components/Banner";
 import General from "views/admin/profile/components/General";
 import Projects from "views/admin/profile/components/Projects";
-
-import React from "react";
+import Modal from "views/admin/profile/components/Modal";
+import React, { useEffect, useState } from "react";
 
 export default function Overview() {
   const company = {
@@ -31,35 +31,15 @@ export default function Overview() {
   const upcomingAirDrops = [
     {
       name: "CyberFi",
-      date: "April 17th, 2021",
+      date: "April 20th, 2023",
     },
     {
       name: "Gnosis",
-      date: "April 23th, 2021",
+      date: "April 23th, 2023",
     },
     {
-      name: "CyberFi",
-      date: "April 17th, 2021",
-    },
-    {
-      name: "Gnosis",
-      date: "April 23th, 2021",
-    },
-    {
-      name: "CyberFi",
-      date: "April 17th, 2021",
-    },
-    {
-      name: "Gnosis",
-      date: "April 23th, 2021",
-    },
-    {
-      name: "CyberFi",
-      date: "April 17th, 2021",
-    },
-    {
-      name: "Gnosis",
-      date: "April 23th, 2021",
+      name: "HackFest",
+      date: "April 24th, 2023",
     },
   ];
 
@@ -72,7 +52,7 @@ export default function Overview() {
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
-      {/* Main Fields */}
+      <Modal />
       <Flex>
         <Banner gridArea="1 / 1 / 2 / 2" company={company} />
 
